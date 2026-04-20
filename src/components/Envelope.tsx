@@ -42,13 +42,11 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
   const isFlapOpen = state !== "closed" && state !== "seal-crack";
   const isCardMoving = state === "card-peek" || state === "card-out" || state === "fade";
 
-  const flapRotation = isFlapOpen ? -178 : 0;
-
   const cardY =
     state === "card-peek"
-      ? "-18%"
+      ? "-125%"
       : state === "card-out" || state === "fade"
-        ? "-140%"
+        ? "-110%"
         : "0%";
 
   const cardScale = state === "card-out" || state === "fade" ? 0.92 : 1;
@@ -58,7 +56,7 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
       {!isOpen && (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ backgroundColor: "hsl(38 14% 85%)" }}
+          style={{backgroundColor: "hsl(38 14% 85%)" }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
@@ -71,12 +69,7 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
               backgroundPosition: "center",
             }}
           />
-          {/*<div
-            className="absolute inset-0"
-            style={{ backgroundColor: "hsl(38 14% 90% / 0.45)" }}
-          />*/}
 
-          {/* === ENVELOPE === */}
           <motion.div
             className="relative cursor-pointer select-none"
             initial={{ y: 60, opacity: 0, scale: 0.92 }}
@@ -196,7 +189,7 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
               style={{
                 height: "86%",
                 bottom: "7%",
-                zIndex: 2,
+                zIndex: state === "card-out" || state === "fade" ? 20 : 3,
                 background: "linear-gradient(176deg, hsl(42 30% 97%) 0%, hsl(40 26% 95%) 60%, hsl(39 24% 94%) 100%)",
               }}
               animate={{
@@ -209,12 +202,9 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
               }}
               transition={{
                 y: {
-                  duration: state === "card-peek" ? 0.8 : 1.2,
-                  ease: state === "card-peek" ? [0.33, 1, 0.68, 1] : [0.16, 1, 0.3, 1],
+                  duration: 2,
+                  ease: [0.33, 1, 0.68, 1],
                 },
-                scale: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
-                opacity: { duration: 0.6 },
-                boxShadow: { duration: 0.5 },
               }}
             >
               <BotanicalPattern
@@ -228,12 +218,15 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
                 >
                   Ensemble avec leurs familles
                 </p>
-                <p className="font-script text-3xl md:text-5xl gold-text mt-2">
+                <p
+                className="font-script text-3xl md:text-5xl mt-2"
+                style={{ color:"hsl(38 40% 32%)"}}
+                >
                   Ethel & Ben
                 </p>
                 <div className="gold-divider w-12 mt-3" />
                 <p
-                  className="font-body text-[10px] md:text-xs mt-2 tracking-[0.25em] font-medium"
+                  className="font-body text-[20px] md:text-xs mt-2 tracking-[0.25em] font-medium"
                   style={{ color: "hsl(35 12% 35%)" }}
                 >
                   02 · 09 · 2026
@@ -321,13 +314,12 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
               />
             </div>
 
-            {/* ====== TOP FLAP with 3D hinge ====== */}
+            {/* ====== TOP FLAP with 2D hinge ====== */}
             <div
               className="absolute top-0 left-0 right-0"
               style={{
                 height: "58%",
-                zIndex: state === "closed" || state === "seal-crack" ? 10 : 3,
-                perspective: "1000px",
+                zIndex: state === "closed" || state === "seal-crack" ? 10 : 1,
               }}
             >
               <motion.div
@@ -336,7 +328,7 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
                   transformOrigin: "top center",
                   transformStyle: "preserve-3d",
                 }}
-                animate={{ rotateX: flapRotation }}
+                animate={{ rotateX: isFlapOpen ? 180 : 0 }}
                 transition={{ duration: 1.0, ease: [0.4, 0, 0.15, 1] }}
               >
                 {/* Front face */}
@@ -345,7 +337,6 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
                   style={{
                     background: "linear-gradient(180deg, hsl(41 25% 89%) 0%, hsl(40 23% 87%) 40%, hsl(38 20% 84%) 80%, hsl(37 18% 82%) 100%)",
                     clipPath: "polygon(0 0, 100% 0, 50% 93%)",
-                    backfaceVisibility: "hidden",
                   }}
                 >
                   {/* Paper texture on flap */}
@@ -382,8 +373,6 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
                   style={{
                     background: "linear-gradient(0deg, hsl(42 26% 93%) 0%, hsl(40 23% 90%) 100%)",
                     clipPath: "polygon(0 0, 100% 0, 50% 93%)",
-                    transform: "rotateX(180deg)",
-                    backfaceVisibility: "hidden",
                   }}
                 />
               </motion.div>
@@ -481,14 +470,14 @@ const Envelope = ({ onOpen, isOpen }: EnvelopeProps) => {
 
           {/* Hint */}
           <motion.p
-            className="absolute bottom-[15%] left-0 right-0 text-center font-body text-base md:text-lg tracking-[0.35em] uppercase"
-            style={{ color: "hsl(35 15% 35%)" }}
+            className="absolute bottom-[15%] left-0 right-0 text-center font-body font-extrabold drop-shadow-md text-base md:text-lg tracking-[0.35em] uppercase"
+            style={{ color: "hsl(40 30% 95%)" }}
             initial={{ opacity: 0, y: 10 }}
             animate={{
               opacity: state === "closed" ? 0.6 : 0,
               y: state === "closed" ? 0 : 10,
             }}
-            transition={{ delay: state === "closed" ? 1.5 : 0, duration: 0.8 }}
+            transition={{ delay: state === "closed" ? 2.5 : 0, duration: 0.8 }}
           >
             Cliquez pour ouvrir
           </motion.p>

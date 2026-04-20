@@ -1,76 +1,114 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { getAudio } from "../audioManager";
 
 const audio = getAudio();
 
-const BackgroundMusic = ({ start }: { start: boolean }) => {
+interface Props {
+  start: boolean;
+  showControl: boolean;
+}
+
+const BackgroundMusic = ({ start, showControl }: Props) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
 
+  // Initialisation audio
   useEffect(() => {
     audio.loop = true;
     audio.volume = 0.35;
     audioRef.current = audio;
 
-    audio.addEventListener("canplaythrough", () => setReady(true));
+    const onReady = () => setReady(true);
+    audio.addEventListener("canplaythrough", onReady);
 
     return () => {
-      audio.pause();
-      audio.src = "";
+      audio.removeEventListener("canplaythrough", onReady);
     };
   }, []);
 
+  // Lancement de la musique au clic
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const audioEl = audioRef.current;
+    if (!audioEl) return;
 
     if (start && !playing) {
-      audio.play().then(() => setPlaying(true)).catch(() => {});
+      audioEl
+        .play()
+        .then(() => setPlaying(true))
+        .catch(() => {});
     }
   }, [start]);
 
+  // Toggle play / pause
   const toggle = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const audioEl = audioRef.current;
+    if (!audioEl) return;
+
     if (playing) {
-      audio.pause();
+      audioEl.pause();
       setPlaying(false);
     } else {
-      audio.play().then(() => setPlaying(true)).catch(() => {});
+      audioEl
+        .play()
+        .then(() => setPlaying(true))
+        .catch(() => {});
     }
   };
 
   return (
-    <motion.button
-      onClick={toggle}
-      className="fixed bottom-5 right-5 z-50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm border transition-all"
-      style={{
-        backgroundColor: "hsl(0 0% 0% / 0.3)",
-        borderColor: "hsl(var(--gold) / 0.25)",
-      }}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1.5, duration: 0.4 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      title={playing ? "Couper la musique" : "Jouer la musique"}
-    >
-      {playing ? (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(40 20% 75%)" strokeWidth="2" strokeLinecap="round">
-          <path d="M11 5L6 9H2v6h4l5 4V5z" />
-          <path d="M19.07 4.93a10 10 0 010 14.14" />
-          <path d="M15.54 8.46a5 5 0 010 7.07" />
-        </svg>
-      ) : (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(40 20% 75%)" strokeWidth="2" strokeLinecap="round">
-          <path d="M11 5L6 9H2v6h4l5 4V5z" />
-          <line x1="23" y1="9" x2="17" y2="15" />
-          <line x1="17" y1="9" x2="23" y2="15" />
-        </svg>
+    <>
+      {/* 🔥 bouton visible UNIQUEMENT après ouverture */}
+      {showControl && (
+        <motion.button
+          onClick={toggle}
+          className="fixed bottom-5 right-5 z-50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm border transition-all"
+          style={{
+            backgroundColor: "hsl(0 0% 0% / 0.3)",
+            borderColor: "hsl(var(--gold) / 0.25)",
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.5, duration: 0.4 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          title={playing ? "Couper la musique" : "Jouer la musique"}
+        >
+          {playing ? (
+            // 🔊 son actif
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="hsl(40 20% 75%)"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <path d="M19.07 4.93a10 10 0 010 14.14" />
+              <path d="M15.54 8.46a5 5 0 010 7.07" />
+            </svg>
+          ) : (
+            // 🔇 muet
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="hsl(40 20% 75%)"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+          )}
+        </motion.button>
       )}
-    </motion.button>
+    </>
   );
 };
 

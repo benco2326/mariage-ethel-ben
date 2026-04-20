@@ -56,14 +56,14 @@ const Countdown = ({ targetDate }: CountdownProps) => {
 
   return (
     <motion.div
-      className="py-4"
+      className="py-6"
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, duration: 0.6 }}
     >
       <div className="flex items-center justify-center gap-3 md:gap-5">
         {units.map(({ key, label }, i) => (
-          <div key={key} className="flex items-center gap-3 md:gap-5">
+          <div key={key} className="flex items-center gap- md:gap-5">
             <div className="text-center">
               {/* Number */}
               <motion.div
@@ -74,14 +74,15 @@ const Countdown = ({ targetDate }: CountdownProps) => {
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <span
-                  className="font-script text-3xl md:text-4xl tabular-nums gold-text"
+                  className="font-script text-3xl md:text-4xl "
+                  style={{ color: "hsl(40 50% 45%)" }}
                 >
                   {pad(timeLeft[key])}
                 </span>
               </motion.div>
               {/* Label */}
               <p
-                className="font-body text-[8px] md:text-[10px] tracking-[0.2em] uppercase mt-0.5"
+                className="font-body text-sm md:text-base italic"
                 style={{ color: "hsl(35 15% 45%)" }}
               >
                 {label}
@@ -102,7 +103,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
       </div>
 
       {/* Decorative line under */}
-      <div className="flex items-center justify-center gap-2 mt-3">
+      <div className="flex items-center justify-center gap-2">
         <div className="h-[1px] w-8 md:w-12" style={{ background: "linear-gradient(90deg, transparent, hsl(var(--gold) / 0.25))" }} />
         <svg viewBox="0 0 20 8" className="w-4 h-2" style={{ opacity: 0.3 }}>
           <path d="M0 4 Q5 0, 10 4 Q15 8, 20 4" stroke="hsl(var(--gold))" strokeWidth="0.8" fill="none" />

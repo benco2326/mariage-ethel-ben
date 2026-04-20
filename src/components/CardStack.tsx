@@ -45,7 +45,7 @@ const CardStack = ({ events }: CardStackProps) => {
               </defs>
               <text
                 fill="hsl(var(--gold))"
-                fontSize="30"
+                fontSize="35"
                 fontFamily="inherit"
                 className="font-script"
               >
@@ -54,7 +54,7 @@ const CardStack = ({ events }: CardStackProps) => {
                 </textPath>
               </text>
             </svg>
-            <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase mt-1.5 font-semibold"
+            <p className="font-display text-[10.5px] md:text-xs tracking-[0.2em] uppercase mt-1.5 font-semibold"
               style={{ color: "hsl(38 40% 40%)" }}>
               {event.time} — <span style={{ color: "hsl(38 45% 42%)" }}>{event.date}</span>
             </p>
@@ -94,8 +94,8 @@ const CardStack = ({ events }: CardStackProps) => {
       {renderNested(0)}
 
       <p
-        className="text-center font-body text-xs md:text-sm tracking-[0.3em] uppercase mt-5"
-        style={{ color: "hsl(40 18% 55%)" }}
+        className="text-center font-extrabold text-[12px] md:text-sm tracking-[0.3em] uppercase mt-5"
+        style={{ color:"hsl(38 40% 32%)" }}
       >
         Cliquez sur un titre pour voir les détails
       </p>
