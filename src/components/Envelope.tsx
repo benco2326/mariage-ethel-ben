@@ -4,7 +4,7 @@ import BotanicalPattern from "./BotanicalPattern";
 import HaussmannMolding from "./HaussmannMolding";
 import FlowerCorner from "./FlowerCorner";
 import jerusalemBg from "@/assets/jerusalem-stone-bg.jpg";
-import initialeImg from "@/assets/initiale.png";
+import initialeImg from "../assets/initiale.png";
 import { getAudio } from "../audioManager";
 
 interface EnvelopeProps {
