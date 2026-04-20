@@ -351,6 +351,10 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                 animate={{ opacity: cardRevealed ? 1 : 0 }}
               >
                 {event.title}
+                 <p className="font-script mt-[19px] text-2xl md:text-4xl leading-tight italic"
+                    style={{ color: "hsl(38 45% 42%)" }}>
+                    {event.description}                  
+                    </p>
               </motion.p>
  
                 <motion.div
@@ -359,6 +363,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   animate={{ opacity: cardRevealed ? 1 : 0 }}
                   transition={{ delay: 0.25, duration: 0.5 }}
                 >
+                  
                   <div className="gold-divider flex-1 max-w-[50px] " />
                   <p className="font-display text-xs md:text-sm font-semibold tracking-wider uppercase"
                     style={{ color: "hsl(38 45% 42%)" }}>
@@ -368,7 +373,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                 </motion.div>
  
                 <motion.div
-                  className="mt-4"
+                  className="mt-5"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: cardRevealed ? 1 : 0, y: cardRevealed ? 0 : 10 }}
                   transition={{ delay: 0.35, duration: 0.5 }}
@@ -394,11 +399,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                       {event.address}
                       </a>
                     </p>
-                  </div>                  
-                  <div className="mt-[50px] gold-divider w-12 mx-auto" />
-                  <p className="font-body text-l md:text-base text-muted-foreground italic leading-relaxed max-w-sm mx-auto description-text">
-                    {event.description}
-                  </p>
+                  </div>              
                   </div>
                 </motion.div>
                 </div>
@@ -433,20 +434,6 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
               >
                 {event.title}
               </motion.p>
- 
-                <motion.div
-                  className="flex items-center justify-center gap-3 -mt-1,5"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: cardRevealed ? 1 : 0 }}
-                  transition={{ delay: 0.25, duration: 0.5 }}
-                >
-                  <div className="gold-divider flex-1 max-w-[40px]" />
-                  <p className="font-display text-xs md:text-sm font-semibold tracking-wider uppercase"
-                    style={{ color: "hsl(38 45% 42%)" }}>
-                    
-                  </p>
-                  <div className="gold-divider flex-1 max-w-[40px]" />
-                </motion.div>
  
                 <motion.div
                   className="mt-2"
