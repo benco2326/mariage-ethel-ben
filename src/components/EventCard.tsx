@@ -3,6 +3,11 @@ import { useState } from "react";
 import BotanicalPattern from "./BotanicalPattern";
 import HaussmannMolding from "./HaussmannMolding";
 import FlowerCorner from "./FlowerCorner";
+
+import soireeBg from "../assets/soiree.png";
+import henneBg from "../assets/henne.png";
+import mairieBg from "../assets/mairie-vincennes-fond.png";
+import chabbatBg from "../assets/chabbat.png";
  
 export interface EventData {
   id: string;
@@ -109,7 +114,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                 <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url("/src/assets/soiree.png")`,
+                  backgroundImage: `url(${soireeBg})`,
                   backgroundSize: "101% 100%",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -330,7 +335,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                 <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url("/src/assets/henne.png")`,
+                  backgroundImage: `url(${henneBg})`,
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -412,7 +417,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url("/src/assets/mairie-vincennes-fond.png")`,
+                  backgroundImage: `url(${mairieBg})`,
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -488,7 +493,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                 <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url("/src/assets/chabbat.png")`,
+                  backgroundImage: `url(${chabbatBg})`,
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",

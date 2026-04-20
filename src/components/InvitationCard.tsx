@@ -18,7 +18,7 @@ const allEvents: EventData[] = [
     address: "1 Rue du Petit Marais, 95470, Saint-Witz",
     mapQuery: "Saint Witz France",
     description:
-      "Les chambres seront disponibles vers 16h30.",
+      "Les chambres seront disponibles vers 17h00.",
   },
   {
     id: "soiree",
@@ -58,7 +58,7 @@ const allEvents: EventData[] = [
 const InvitationCard = () => {
  const params = new URLSearchParams(window.location.search);
   const invitationType = params.get("inv");
-  const family = params.get("fam");
+  const family = params.get("family");
 
   const validInvitations = ["K9xA2", "ZpL88", "Qw7T1"];
   const validFamilies = ["korn", "cohen", "haddad"];
