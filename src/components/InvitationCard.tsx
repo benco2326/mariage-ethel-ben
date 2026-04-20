@@ -18,7 +18,7 @@ const allEvents: EventData[] = [
     address: "1 Rue du Petit Marais, 95470, Saint-Witz",
     mapQuery: "Saint Witz France",
     description:
-      "Les chambres seront disponibles vers 16h30.",
+      "Les chambres seront disponibles vers 17h00.",
   },
   {
     id: "soiree",
