@@ -58,7 +58,7 @@ const allEvents: EventData[] = [
 const InvitationCard = () => {
  const params = new URLSearchParams(window.location.search);
   const invitationType = params.get("inv");
-  const family = params.get("fam");
+  const family = params.get("family");
 
   const validInvitations = ["K9xA2", "ZpL88", "Qw7T1"];
   const validFamilies = ["korn", "cohen", "haddad"];
