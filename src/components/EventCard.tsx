@@ -171,7 +171,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                    <div className="flex justify-between w-full -mt-[13.5px]">
                     <div className="text-left">
                       <p className="font-body text-[12px] md:text-[10px] font-medium" style={{ color: "hsl(35 10% 35%)" }}>
-                        Nicole, Blanche & Lilliane
+                        Nicole, Blanche & Liliane
                       </p> 
                       <p className="font-body text-[12px] md:text-[10px] font-medium" style={{ color: "hsl(35 10% 35%)" }}>
                         Stéphane & Johanna Haddad
