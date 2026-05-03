@@ -119,14 +119,27 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   opacity: 0.9,                
-                  }}
-              />
-              <div
-              style={{
-                background: "rgba(255, 248, 238, 0)",
-                backdropFilter: "blur(0px)",        
-              }}
-              >
+                  
+                  webkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden",
+                  WebkitPerspective: 1000,
+                  perspective: 1000,
+                  willChange: "opacity, transform",
+                }}
+                />
+ 
+                <div
+                style={{
+                  background: "rgba(255, 248, 238, 0.13)",
+                  WebkitBackdropFilter: "blur(0px)",
+                  backdropFilter: "blur(0px)",
+                  WebkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                }}
+                >
+
                 {/* Small blessing */}
                 <motion.p
                   className="font-body text-[8px] md:text-[9px] tracking-[0.2em]"
@@ -340,14 +353,27 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   opacity: 0.9,                
-                  }}
-              />
-              <div
-              style={{
-                background: "rgba(255, 248, 238, 0.13)",
-                backdropFilter: "blur(0px)",        
-              }}
-              >
+                 
+                  webkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden",
+                  WebkitPerspective: 1000,
+                  perspective: 1000,
+                  willChange: "opacity, transform",
+                }}
+                />
+ 
+                <div
+                style={{
+                  background: "rgba(255, 248, 238, 0.13)",
+                  WebkitBackdropFilter: "blur(0px)",
+                  backdropFilter: "blur(0px)",
+                  WebkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                }}
+                >
+
                   {/* Arc headline */}
                 <motion.p
                 className="mt-[60px] text-center font-script text-4xl md:text-5xl "
@@ -421,15 +447,28 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  opacity: 0.6,                
-                  }}
-              />
-              <div
-              style={{
-                background: "rgba(255, 248, 238, 0.13)",
-                backdropFilter: "blur(0px)",        
-              }}
-              >
+                  opacity: 0.6,    
+
+                  webkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden",
+                  WebkitPerspective: 1000,
+                  perspective: 1000,
+                  willChange: "opacity, transform",
+                }}
+                />
+ 
+                <div
+                style={{
+                  background: "rgba(255, 248, 238, 0.13)",
+                  WebkitBackdropFilter: "blur(0px)",
+                  backdropFilter: "blur(0px)",
+                  WebkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                }}
+                >
+
                 {/* Arc headline */}
                 <motion.p
                 className="text-center font-script text-4xl md:text-5xl "
@@ -498,14 +537,27 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   opacity: 0.9,                
-                  }}
-              />
-              <div
-              style={{
-                background: "rgba(255, 248, 238, 0.13)",
-                backdropFilter: "blur(0px)",        
-              }}
-              >
+                  
+                  webkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden",
+                  WebkitPerspective: 1000,
+                  perspective: 1000,
+                  willChange: "opacity, transform",
+                }}
+                />
+ 
+                <div
+                style={{
+                  background: "rgba(255, 248, 238, 0.13)",
+                  WebkitBackdropFilter: "blur(0px)",
+                  backdropFilter: "blur(0px)",
+                  WebkitTransform: "translate3d(0,0,0)",
+                  transform: "translate3d(0,0,0)",
+                }}
+                >
+                  
                   {/* Arc headline */}
                 <motion.p
                 className="mt-[55px] text-center font-script text-4xl md:text-5xl "
