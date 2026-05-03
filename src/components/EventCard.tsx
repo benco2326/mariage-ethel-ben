@@ -120,7 +120,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundPosition: "center",
                   opacity: 0.9,                
                   
-                  webkitTransform: "translate3d(0,0,0)",
+                  WebkitTransform: "translate3d(0,0,0)",
                   transform: "translate3d(0,0,0)",
                   WebkitBackfaceVisibility: "hidden",
                   backfaceVisibility: "hidden",
@@ -354,7 +354,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundPosition: "center",
                   opacity: 0.9,                
                  
-                  webkitTransform: "translate3d(0,0,0)",
+                  WebkitTransform: "translate3d(0,0,0)",
                   transform: "translate3d(0,0,0)",
                   WebkitBackfaceVisibility: "hidden",
                   backfaceVisibility: "hidden",
@@ -449,7 +449,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundPosition: "center",
                   opacity: 0.6,    
 
-                  webkitTransform: "translate3d(0,0,0)",
+                  WebkitTransform: "translate3d(0,0,0)",
                   transform: "translate3d(0,0,0)",
                   WebkitBackfaceVisibility: "hidden",
                   backfaceVisibility: "hidden",
@@ -538,7 +538,7 @@ const EventDetail = ({ event, onClose }: EventDetailProps) => {
                   backgroundPosition: "center",
                   opacity: 0.9,                
                   
-                  webkitTransform: "translate3d(0,0,0)",
+                  WebkitTransform: "translate3d(0,0,0)",
                   transform: "translate3d(0,0,0)",
                   WebkitBackfaceVisibility: "hidden",
                   backfaceVisibility: "hidden",
